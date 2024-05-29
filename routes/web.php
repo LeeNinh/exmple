@@ -1,7 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/user', function () {
+    return view('user');
+});
+
+
+Route::get('/home', function () {
+    $user = new User();
+    $allUser = $user::all();
+    dd($allUser);
 });
